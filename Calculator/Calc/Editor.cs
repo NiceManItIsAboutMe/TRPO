@@ -12,93 +12,93 @@ namespace Calculator.Calc
         private readonly string ZERO = "0";
         private readonly string DELIMITER = ".";
 
-        public string Number { get; set; } = "0";
+        public PNumber Number { get; set; } = new PNumber("0");
 
         bool isZero = true;
 
-        public string AddDigit(int tag)
+        public PNumber AddDigit(int tag)
         {
             if (isZero)
             {
                 if (tag < 10)
-                    Number = tag.ToString();
+                    Number.Number = tag.ToString();
                 else if (tag == 10)
-                    Number = "A";
+                    Number.Number = "A";
                 else if (tag == 11)
-                    Number = "B";
+                    Number.Number = "B";
                 else if (tag == 12)
-                    Number = "C";
+                    Number.Number = "C";
                 else if (tag == 13)
-                    Number = "D";
+                    Number.Number = "D";
                 else if (tag == 14)
-                    Number = "E";
+                    Number.Number = "E";
                 else if (tag == 15)
-                    Number = "F";
+                    Number.Number = "F";
             }
             else
             {
 
                 if (tag < 10)
-                    Number += tag.ToString();
+                    Number.Number += tag.ToString();
                 else if (tag == 10)
-                    Number += "A";
+                    Number.Number += "A";
                 else if (tag == 11)
-                    Number += "B";
+                    Number.Number += "B";
                 else if (tag == 12)
-                    Number += "C";
+                    Number.Number += "C";
                 else if (tag == 13)
-                    Number += "D";
+                    Number.Number += "D";
                 else if (tag == 14)
-                    Number += "E";
+                    Number.Number += "E";
                 else if (tag == 15)
-                    Number += "F";
+                    Number.Number += "F";
             }
             isZero = false;
             return Number;
         }
 
-        public string AddZero()
+        public PNumber AddZero()
         {
             if (!isZero)
-                Number += ZERO;
+                Number.Number += ZERO;
             return Number;
                 
         }
 
-        public string AddDelimeter()
+        public PNumber AddDelimeter()
         {
-            if (!Number.Contains(DELIMITER))
-                Number += DELIMITER;
+            if (!Number.Number.Contains(DELIMITER))
+                Number.Number += DELIMITER;
             isZero = false;
             return Number;
         }
 
-        public string Clear()
+        public PNumber Clear()
         {
-            Number = ZERO;
+            Number.Number = ZERO;
             isZero = true;
             return Number;
         }
 
-        public string AddSign()
+        public PNumber AddSign()
         {
-            if(Number!="0")
-            if (Number.Contains("-"))
-                Number = Number.Substring(1);
+            if(Number.Number!="0")
+            if (Number.Number.Contains("-"))
+                Number.Number = Number.Number.Substring(1);
             else
-                Number = "-" + Number;
+                Number.Number = "-" + Number.Number;
             return Number;
         }
 
-        public string DeleteSymbol()
+        public PNumber DeleteSymbol()
         {
-            if (Number.Length == 1)
+            if (Number.Number.Length == 1)
                 return Clear();
             if (!isZero)
-                Number = Number.Substring(0, Number.Length - 1);
+                Number.Number = Number.Number.Substring(0, Number.Number.Length - 1);
             return Number;
         }
-        public string DoEdit(int tag)
+        public PNumber DoEdit(int tag)
         {
             if (tag == 0) return AddZero();
             if (tag <= 15 && tag!=0) return AddDigit(tag);
