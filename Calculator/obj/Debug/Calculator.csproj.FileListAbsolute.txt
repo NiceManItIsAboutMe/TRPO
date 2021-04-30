@@ -1,0 +1,11 @@
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.csprojAssemblyReference.cache
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.Calculator.resources
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.Properties.Resources.resources
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.csproj.GenerateResource.cache
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.csproj.CoreCompileInputs.cache
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\bin\Debug\Calculator.exe.config
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\bin\Debug\Calculator.exe
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\bin\Debug\Calculator.pdb
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.exe
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.pdb
+D:\фпми\3-курс\6-семестр\ТРПО-Технологии-разработки-ПО\проект 2. Калькулятор\Calculator\Calculator\obj\Debug\Calculator.HistoryForm.resources
