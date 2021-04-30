@@ -27,19 +27,19 @@ namespace Calculator
                 return;
             string str = control.DoCommand(tag);
 
-            if (tag == 21)
+            if (tag == 24)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "+";
             }
-            else if (tag == 22)
+            else if (tag == 25)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "-";
             }
-            else if (tag == 23)
+            else if (tag == 26)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "*";
             }
-            else if (tag == 24)
+            else if (tag == 27)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "/";
             }
@@ -145,10 +145,10 @@ namespace Calculator
             if (e.KeyChar == '.') i = 16;
             if ((int)e.KeyChar == 8) i = 18;
             if ((int)e.KeyChar == 13) i = 28;
-            if (e.KeyChar == '+') i = 21;
-            if (e.KeyChar == '-') i = 22;
-            if (e.KeyChar == '*') i = 23;
-            if (e.KeyChar == '/') i = 24;
+            if (e.KeyChar == '+') i = 24;
+            if (e.KeyChar == '-') i = 25;
+            if (e.KeyChar == '*') i = 26;
+            if (e.KeyChar == '/') i = 27;
             if ((i < control.numSystem) || (i >= 16)) DoCommand(i);
         }
     }

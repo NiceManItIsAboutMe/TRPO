@@ -9,20 +9,20 @@ namespace Calculator.Calc
     enum EOperation: Int32
     {
         None,
-        Sum=21,
-        Mult=23,
-        Sub=22,
-        Div=24,
-        Sqr=25,
-        Sqrt=26,
-        Rec=27,
-        Equal=28
+        Sum=24,
+        Mult=26,
+        Sub=25,
+        Div=27,
+        Sqr=20,
+        Sqrt=21,
+        Rec=22
 
     }
     class Proc
     {
         public PNumber Num1 { get; set; }
         public PNumber Num2 { get ; set; }
+       // public PNumber Result { get ; set; }
 
         public EOperation Operation { get; set; } = EOperation.None;
 
@@ -31,6 +31,27 @@ namespace Calculator.Calc
         {
             Num1 = new PNumber("0");
             Num2 = new PNumber("0");
+          //  Result = new PNumber("0");
+        }
+
+        public void SwitchOperation(int tag)
+        {
+            if (tag == 24)
+                Operation = EOperation.Sum;
+            else if (tag == 25)
+            {
+                Operation = EOperation.Sub;
+            }
+            else if (tag == 26)
+            {
+                Operation = EOperation.Mult;
+            }
+            else if (tag == 27)
+            {
+                Operation = EOperation.Div;
+            }
+            
+            
         }
 
         public void Clear()
@@ -38,6 +59,7 @@ namespace Calculator.Calc
             Operation = EOperation.None;
             Num1 = new PNumber("0");
             Num2 = new PNumber("0");
+           // Result = new PNumber("0");
         }
 
         public PNumber DoOperation()
@@ -52,12 +74,6 @@ namespace Calculator.Calc
                     return Num1 *= Num2;
                 case EOperation.Div:
                     return Num1 /= Num2;
-                case EOperation.Sqr:
-                    return Num1=PNumber.Sqr(Num1);
-                case EOperation.Sqrt:
-                    return Num1=PNumber.Sqrt(Num1);
-                case EOperation.Rec:
-                    return Num1=PNumber.Reciprocal(Num1);
                 default:
                     return Num1;
             }

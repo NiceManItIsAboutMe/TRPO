@@ -8,12 +8,18 @@ namespace Converter
 {
     public class Conver_10_P
     {
-        public static string Do(double n, int p, int c=7)
+        public static string Do(double n, int p, int c=4)
         {
             if (n == 0)
                 return "0";
+            string sign = "";
             string res = "";
-            res += IntToP((int)(n - (n % 1)), p) + FltToP(Math.Abs(n % 1), p, c);
+            if (n < 0)
+            {
+                n = -n;
+                sign = "-";
+            }
+            res +=sign + IntToP((int)(n - (n % 1)), p) + FltToP(Math.Abs(n % 1), p, c);
             return res;
         }
         public static char IntToChar(int n)
@@ -61,16 +67,12 @@ namespace Converter
         public static string IntToP(int n, int p)
         {
             string res="";
-            string sign = "";
+            //string sign = "";
             if (n == int.MinValue)
                 throw new Exception("Вы ввели слишком большое число");
-            if (n < 0)
-            {
-                n = -n;
-                sign = "-";
-            }
+            
             if (n == 0)
-                res = "0";
+                res ="0";
             while(n!=0)
             {
                 res += IntToChar(n % p);
@@ -79,16 +81,18 @@ namespace Converter
             char[] input = res.ToCharArray();
             Array.Reverse(input);
             res = new string(input);
-            res = sign + res;
+            //res = sign + res;
             return res;
         }
 
         public static string FltToP(double n,int p, int c)
         {
             string res = "";
-            while (n % 1 != 0 && c>0)
+            n = Math.Round(n, c);
+            int temp = 5;
+            while (n % 1 != 0 && temp>0)
             {
-                --c;
+                --temp;
                 n *= p;
                 res += IntToChar((int)(n - (n % 1)));
                 n %= 1;
