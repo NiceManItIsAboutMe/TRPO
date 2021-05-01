@@ -35,6 +35,19 @@ namespace Calculator.Calc
                 this.Operation = "1/";
             this.Result = Result;
         }
+        public HistoryItem(PNumber FirstNumber, EOperation Operation, PNumber Result)
+        {
+            this.FirstNumber = FirstNumber;
+            this.Eoperation = Operation;
+            this.SecondNumber = new PNumber("0");
+            if (Eoperation == EOperation.Sqr)
+                this.Operation = "²";
+            else if (Eoperation == EOperation.Sqrt)
+                this.Operation = "√";
+            else if (Eoperation == EOperation.Rec)
+                this.Operation = "1/";
+            this.Result = Result;
+        }
 
     }
    class History
@@ -44,6 +57,7 @@ namespace Calculator.Calc
         public void AddHistoryItem(HistoryItem item) 
         {
             item.FirstNumber.ChangeNumSystem(10);
+            if(item.SecondNumber!=null)
             item.SecondNumber.ChangeNumSystem(10);
             item.Result.ChangeNumSystem(10);
             history.Add(item);

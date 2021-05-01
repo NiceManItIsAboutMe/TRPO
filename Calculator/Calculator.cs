@@ -27,24 +27,39 @@ namespace Calculator
                 return;
             string str = control.DoCommand(tag);
 
-            if (tag == 24)
+            /* if (tag == 24)
+             {
+                 operationTextBox.Text = control.proc.Num1.Number + "+";
+             }
+             else if (tag == 25)
+             {
+                 operationTextBox.Text = control.proc.Num1.Number + "-";
+             }
+             else if (tag == 26)
+             {
+                 operationTextBox.Text = control.proc.Num1.Number + "*";
+             }
+             else if (tag == 27)
+             {
+                 operationTextBox.Text = control.proc.Num1.Number + "/";
+             }*/
+
+            if (control.proc.Operation == EOperation.Sum)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "+";
             }
-            else if (tag == 25)
+            else if (control.proc.Operation == EOperation.Sub)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "-";
             }
-            else if (tag == 26)
+            else if (control.proc.Operation == EOperation.Mult)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "*";
             }
-            else if (tag == 27)
+            else if (control.proc.Operation == EOperation.Div)
             {
                 operationTextBox.Text = control.proc.Num1.Number + "/";
             }
-
-
             if (control.proc.Operation != EOperation.None)
             {
                 if (tag != 28)
@@ -52,13 +67,13 @@ namespace Calculator
                 else if (control.proc.Operation != EOperation.None)
                 {
                     operationTextBox.Visible = false;
-                    operationTextBox.Text = "0";
+                   // operationTextBox.Text = "0";
                 }
             }
             else
             {
                 operationTextBox.Visible = false;
-                operationTextBox.Text = "0";
+              //  operationTextBox.Text = "0";
             }
 
             mainTextBox.Text = str;

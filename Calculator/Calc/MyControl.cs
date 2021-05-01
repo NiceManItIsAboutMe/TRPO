@@ -33,8 +33,25 @@ namespace Calculator.Calc
        
             if (tag <= 22) // это ввод символов и их удаление а также одиночные операции (sqr sqrt rec)
             {
-                    isEqualLastCommand = false;
-                    return editor.DoEdit(tag).Number;
+                PNumber num1 = new PNumber(editor.Number);
+                PNumber res = new PNumber(editor.DoEdit(tag));
+                if (tag >= 20 && isEqualLastCommand)
+                    proc.Operation = EOperation.None;
+                if (tag == 20)
+                {
+                    history.AddHistoryItem(new HistoryItem(num1,EOperation.Sqr,res));
+                }
+                else if (tag == 21)
+                {
+                    history.AddHistoryItem(new HistoryItem(num1, EOperation.Sqrt, res));
+                }
+                else if (tag == 22)
+                {
+                    history.AddHistoryItem(new HistoryItem(num1, EOperation.Rec, res));
+                }
+                isEqualLastCommand = false;
+
+                return editor.Number.Number;
             }
             else if (tag == 23) // это CE
             {
@@ -48,7 +65,7 @@ namespace Calculator.Calc
                 {
                     DoCommand(28);
                 }
-                else
+                else if(editor.Number.Number != "0")
                 {
                     proc.Num1 = new PNumber(editor.Number);
 
@@ -59,14 +76,17 @@ namespace Calculator.Calc
             }
             else if (tag == 28) // это равно
             {
+                PNumber num1 = new PNumber(proc.Num1);
                 if (editor.Number.Number != "0" && !isEqualLastCommand) // если не равно 0 то это 2 число
                     proc.Num2 = new PNumber(editor.Number);
                 else if (!isEqualLastCommand)  
                     proc.Num2 = new PNumber(proc.Num1);
-                else // если была нажата кнопка равно и больше ничего то нужно повторить прошлое действие
-                    return (editor.Number = new PNumber(proc.DoOperation())).Number;
+                 // если была нажата кнопка равно и больше ничего то нужно повторить прошлое действие
+                PNumber num2 = new PNumber(proc.Num2);
+                PNumber res = new PNumber((editor.Number = new PNumber(proc.DoOperation())));
+                history.AddHistoryItem(new HistoryItem(num1, proc.Operation, num2, res));
                 isEqualLastCommand = true;
-                return (editor.Number = new PNumber(proc.DoOperation())).Number;
+                return editor.Number.Number;
                 
             }
             else if (tag == 29)
